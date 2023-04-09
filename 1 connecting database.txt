@@ -1,0 +1,55 @@
+dmitry@DESKTOP-DF41HGT:~$ hostnamectl
+ Static hostname: DESKTOP-DF41HGT
+       Icon name: computer-vm
+         Chassis: vm
+      Machine ID: 0aebb551a7da4774be9ba969a3a0071d
+         Boot ID: 9f74826bc5df4bf6b191260a13979c09
+  Virtualization: oracle
+Operating System: Ubuntu 22.04.2 LTS              
+          Kernel: Linux 5.19.0-38-generic
+    Architecture: x86-64
+ Hardware Vendor: innotek GmbH
+  Hardware Model: VirtualBox
+
+
+dmitry@DESKTOP-DF41HGT:~$ sudo su - postgres
+[sudo] пароль для dmitry: 
+
+postgres@DESKTOP-DF41HGT:~$ psql
+psql (14.7 (Ubuntu 14.7-0ubuntu0.22.04.1))
+Type "help" for help.
+
+postgres=# \q
+postgres@DESKTOP-DF41HGT:~$ exit
+выход
+
+dmitry@DESKTOP-DF41HGT:~$ psql -Udmitry gb_test -h127.0.0.1
+Password for user dmitry: 
+psql (14.7 (Ubuntu 14.7-0ubuntu0.22.04.1))
+SSL connection (protocol: TLSv1.3, cipher: TLS_AES_256_GCM_SHA384, bits: 256, compression: off)
+Type "help" for help.
+
+gb_test=> SHOW server_version;
+           server_version            
+-------------------------------------
+ 14.7 (Ubuntu 14.7-0ubuntu0.22.04.1)
+(1 row)
+
+gb_test=> help
+You are using psql, the command-line interface to PostgreSQL.
+Type:  \copyright for distribution terms
+       \h for help with SQL commands
+       \? for help with psql commands
+       \g or terminate with semicolon to execute query
+       \q to quit
+
+gb_test=> SELECT datname FROM pg_database;
+  datname  
+-----------
+ postgres
+ template1
+ template0
+ gb_test
+(4 rows)
+
+gb_test=> 
