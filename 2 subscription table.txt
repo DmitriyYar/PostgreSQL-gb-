@@ -1,0 +1,9 @@
+-- Таблица подписки
+CREATE TABLE subscription (
+	id SERIAL PRIMARY KEY,	
+	from_user_id INT NOT NULL,     - id текущего пользователя
+	to_user_id INT NOT NULL        - id пользователя на которого подписываемся , либо NULL
+	to_community_id INT NOT NULL,  - id сообщества на которое подписываемся, либо NULL 
+	created_at_user TIMESTAMP      - дата подписки на пользователя
+        created_at_community TIMESTAMP - дата подписки на сообщество
+);
